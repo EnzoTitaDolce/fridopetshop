@@ -1,0 +1,38 @@
+#filtros{
+  display: flex;
+  flex-direction: row;
+  border: 1px solid black;
+  justify-content: center;
+}
+#filtroAnimal{
+  border: 1px solid black;
+}
+
+#filtroMarca{
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+}
+ul{
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+ul li{
+  margin:5px;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}
