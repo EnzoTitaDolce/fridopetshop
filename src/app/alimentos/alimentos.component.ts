@@ -19,16 +19,17 @@ export class AlimentosComponent implements OnInit{
   item: any;
 
 
+
   constructor(private alimentosService:AlimentosService, private cartService: CartService){}
 
   ngOnInit(): void {
-    this.alimentosService.getData().subscribe((data: any[])=>{
+    this.alimentosService.getData().subscribe((data: any)=>{
       this.data = data;
       this.marcas = this.data.map(item=> item.MARCA)
       this.marcas = Array.from(new Set(this.marcas))
       this.dataFiltrada = this.data
+      this.cart = this.cartService.getCart();
     })
-    this.cart = this.cartService.getCart();
   }
   aplicarFiltros(): void {
     // Reiniciar filtros

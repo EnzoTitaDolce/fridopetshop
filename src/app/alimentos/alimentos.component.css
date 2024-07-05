@@ -1,17 +1,32 @@
+body{
+  background-color: #558919;
+  color:white;
+  width: 100%;
+  border-radius: 10px;
+  text-align: center;
+}
+h1{
+  background-color: #9ff839;
+  color:black;
+  border-radius: 10px 10px 0px 0px;
+}
 #filtros{
   display: flex;
   flex-direction: row;
-  border: 1px solid black;
   justify-content: center;
+  padding: 5px;
+  text-align: center;
 }
 #filtroAnimal{
-  border: 1px solid black;
+
+  padding: 10px;
 }
 
 #filtroMarca{
-  border: 1px solid black;
+
   display: flex;
   flex-direction: column;
+  padding: 10px;
 }
 ul{
   list-style-type: none;
@@ -23,16 +38,51 @@ ul li{
   margin:5px;
 }
 table {
-  width: 100%;
+  background-color:#03A9F4;
   border-collapse: collapse;
+  color: #000000;
+  font-weight: bolder;
+}
+table tr:nth-child(odd) {
+  background-color: #fee613; /* Color amarillo para filas impares */
 }
 
+table tr:nth-child(even) {
+  background-color: #f7bd67; /* Color naranja para filas pares */
+}
+table tr:hover{
+  background-color: navy;
+  color: white;
+}
 th, td {
+  width:25%;
   border: 1px solid black;
-  padding: 8px;
-  text-align: left;
+  padding: 2px;
+  text-align: center;
+  text-wrap: wrap;
 }
 
 th {
   background-color: #f2f2f2;
+}
+
+#cartModal{
+  color: black;
+}
+
+@media screen and (max-width:320px){
+  table tr th:nth-of-type(2),
+  table tr td:nth-of-type(2),
+  table tr th:nth-of-type(4),
+  table tr td:nth-of-type(4),
+  table tr td:nth-of-type(5),
+  table tr th:nth-of-type(5) {
+  display: none;
+}
+
+#filtros{
+  display: flex;
+  flex-direction: column;
+}
+
 }

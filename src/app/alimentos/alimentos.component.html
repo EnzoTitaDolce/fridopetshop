@@ -1,3 +1,4 @@
+<body>
 <h1>Nuestros Alimentos</h1>
 <div id="filtros" *ngIf="marcas">
   <div id="filtroAnimal">
@@ -16,12 +17,12 @@
       </ul>
   </div>
 </div>
-<div *ngIf="dataFiltrada">
-  <h2>Gatos</h2>
+<button class="btn btn-primary" (click)="openCart()">Ver Carrito</button>
+<div *ngIf="data">
   <table>
     <thead>
       <tr>
-        <th>Seleccionar</th>
+        <th></th>
         <th>Marca</th>
         <th>Descripción</th>
         <th>Cantidad</th>
@@ -31,43 +32,18 @@
     </thead>
     <tbody>
       <ng-container *ngFor="let item of dataFiltrada">
-        <tr *ngIf="item.ANIMAL === 'GATO'">
+        <tr >
           <td><input type="checkbox" (change)="toggleItemSelection(item, $event)" [checked]="isChecked(item)"></td>
           <td>{{ item.MARCA }}</td>
           <td>{{ item.DESCRIPCION }}</td>
           <td>{{ item.Cantidad }}</td>
-          <td>$ {{ item.PRECIO }}</td>
-          <td>$ {{((item.PRECIO)*0.98).toFixed(0)}}</td>
+          <td>{{ item.PRECIO }}</td>
+          <td>{{((item.PRECIO)*0.98).toFixed(0)}}</td>
         </tr>
       </ng-container>
     </tbody>
   </table>
-  <h2>Perros</h2>
-  <table>
-    <thead>
-      <tr>
-        <th>Seleccionar</th>
-        <th>Marca</th>
-        <th>Descripción</th>
-        <th>Cantidad</th>
-        <th>Precio</th>
-        <th>Precio Web</th>
-      </tr>
-    </thead>
-    <tbody>
-      <ng-container *ngFor="let item of dataFiltrada">
-        <tr *ngIf="item.ANIMAL === 'PERRO'">
-          <td><input type="checkbox" (change)="toggleItemSelection(item, $event)" [checked]="isChecked(item)"></td>
-          <td>{{ item.MARCA }}</td>
-          <td>{{ item.DESCRIPCION }}</td>
-          <td>{{ item.Cantidad }}</td>
-          <td>$ {{ item.PRECIO }}</td>
-          <td>$ {{((item.PRECIO)*0.98).toFixed(0)}}</td>
-        </tr>
-      </ng-container>
-    </tbody>
-  </table>
-  <button class="btn btn-primary" (click)="openCart()">Ver Carrito</button>
+
 </div>
 
 
@@ -96,3 +72,4 @@
     </div>
   </div>
 </div>
+</body>

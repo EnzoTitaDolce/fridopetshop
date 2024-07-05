@@ -1,18 +1,32 @@
 nav{
   margin:0px;
+  background-color: rgb(39, 73, 166);
 }
 ul{
-  margin: 0px;
+  margin:0px 15px;
   display:flex;
   flex-direction: row;
   list-style: none;
   justify-content: space-between;
-  border: 1px solid black;
 }
 ul li{
   margin-left: 0px;
+
 }
 ul li a{
   text-decoration: none;
-  border:1px solid black;
+  color: aliceblue;
+}
+
+ul li a:hover{
+  background-color: aliceblue;
+  color:rgb(39, 73, 166);
+  border-radius: 5px;
+  padding: 0px 4px;
+}
+
+@media screen and (max-width:320px) {
+  ul{
+    flex-wrap: wrap;
+  }
 }
