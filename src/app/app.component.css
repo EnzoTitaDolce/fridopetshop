@@ -19,7 +19,7 @@ body{
   margin-right: auto;
 
 }
-@media screen-only and (max-width:320px) {
+@media screen-only and (max-width:540px) {
   body{
     width: 100vw;
   }
