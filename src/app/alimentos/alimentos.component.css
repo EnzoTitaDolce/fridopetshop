@@ -1,12 +1,12 @@
 body{
-  background-color: #558919;
+  background-color: #043565;
   color:white;
   width: 100%;
   border-radius: 10px;
   text-align: center;
 }
 h1{
-  background-color: #9ff839;
+  /*background-color: #02394A;*/
   color:black;
   border-radius: 10px 10px 0px 0px;
 }
@@ -38,24 +38,28 @@ ul li{
   margin:5px;
 }
 table {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
   background-color:#03A9F4;
   border-collapse: collapse;
   color: #000000;
   font-weight: bolder;
 }
 table tr:nth-child(odd) {
-  background-color: #fee613; /* Color amarillo para filas impares */
+  background-color: #8FBFE0; /* Color amarillo para filas impares */
 }
 
 table tr:nth-child(even) {
-  background-color: #f7bd67; /* Color naranja para filas pares */
+  background-color: #A0D2DB; /* Color naranja para filas pares */
 }
 table tr:hover{
   background-color: navy;
   color: white;
 }
 th, td {
-  width:25%;
+  width:auto;
+  /*width:25%;*/
   border: 1px solid black;
   padding: 2px;
   text-align: center;

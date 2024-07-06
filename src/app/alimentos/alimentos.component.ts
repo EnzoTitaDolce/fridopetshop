@@ -17,6 +17,7 @@ export class AlimentosComponent implements OnInit{
   filtroMarca: string[] = [];
   dataFiltrada: any[] = [];
   item: any;
+  total:number = 0
 
 
 
@@ -80,6 +81,10 @@ export class AlimentosComponent implements OnInit{
   }
 
   openCart(): void{
+
+    for (let item of this.cart){
+      this.total+=item.PRECIO
+    }
     $('#cartModal').modal('show')
   }
   isChecked(item: any): boolean {

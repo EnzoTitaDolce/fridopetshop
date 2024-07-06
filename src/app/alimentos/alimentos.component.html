@@ -1,5 +1,5 @@
 <body>
-<h1>Nuestros Alimentos</h1>
+<!-- <h1>Nuestros Alimentos</h1> -->
 <div id="filtros" *ngIf="marcas">
   <div id="filtroAnimal">
     <h2>Animal</h2>
@@ -25,7 +25,7 @@
         <th></th>
         <th>Marca</th>
         <th>Descripción</th>
-        <th>Cantidad</th>
+        <th>Presentación</th>
         <th>Precio</th>
         <th>Precio Web</th>
       </tr>
@@ -36,9 +36,9 @@
           <td><input type="checkbox" (change)="toggleItemSelection(item, $event)" [checked]="isChecked(item)"></td>
           <td>{{ item.MARCA }}</td>
           <td>{{ item.DESCRIPCION }}</td>
-          <td>{{ item.Cantidad }}</td>
-          <td>{{ item.PRECIO }}</td>
-          <td>{{((item.PRECIO)*0.98).toFixed(0)}}</td>
+          <td>{{ item.Cantidad }} kg</td>
+          <td>$ {{ (item.PRECIO.toFixed(0)) }}</td>
+          <td>$ {{((item.PRECIO)*0.98).toFixed(0)}}</td>
         </tr>
       </ng-container>
     </tbody>
@@ -61,9 +61,13 @@
         <ul>
           <li *ngFor="let item of cart">
             {{ item.MARCA }} - {{ item.DESCRIPCION }}: {{ item.Cantidad }}
+            Cantidad: <input type="number">
             <button class="btn btn-danger btn-sm" (click)="removeItemFromCart(item)">Eliminar</button>
           </li>
         </ul>
+      </div>
+      <div>
+        Total: {{total}}
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Volver</button>
