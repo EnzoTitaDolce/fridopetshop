@@ -14,7 +14,8 @@ export class SaludComponent implements OnInit{
   data:any[] = []
   cart:any[] = []
   item:any[] = []
-  total:number = 0
+  totalGeneral:number = 0
+  total: any;
 
   constructor(private higieneService:HigieneService, private cartService:CartService){
 
@@ -23,6 +24,32 @@ export class SaludComponent implements OnInit{
     this.higieneService.getData().subscribe((data:any)=>{
       this.data=data
     })
+
+    this.cart = this.cartService.getCart().map(item => ({
+      ...item, quantity:1,//añade la variable quantity al item
+      total: item.PRECIO
+    }))
+    this.calcularTotalGeneral()
+  }
+
+
+  actualizarCantidad(item: any): void {
+    this.calcularTotalGeneral();
+  }
+
+  calcularTotalGeneral(): void {
+    this.totalGeneral = this.cart.reduce((acc, item) => acc + (item.PRECIO * item.quantity), 0);
+  }
+
+  removeItemFromCart(item: any): void {
+    this.cart = this.cart.filter(cartItem => cartItem !== item);
+    this.cartService.removeFromCart(item);
+    this.calcularTotalGeneral();
+  }
+
+  guardarCambios(): void {
+    console.log('Compra guardada:', this.cart);
+    // Aquí puedes agregar lógica para guardar los cambios si es necesario
   }
 
   toggleItemSelection(item: any, event: any): void {
@@ -35,7 +62,7 @@ export class SaludComponent implements OnInit{
   }
 
   openCart(): void{
-
+    this.calcularTotalGeneral()
     for (let item of this.cart){
       this.total+=item.PRECIO
     }
@@ -44,10 +71,10 @@ export class SaludComponent implements OnInit{
   isChecked(item: any): boolean {
     return this.cartService.isInCart(item);
   }
-  removeItemFromCart(item: any): void {
-    this.cartService.removeFromCart(item);
-    this.cart = this.cartService.getCart();  // Update local cart variable
-    this.total-=item.PRECIO
+
+  updateQuantity(item:any){}
+  closeCart(): void{
+    $('#cartModal').modal('hide')
   }
 
   sendWhatsApp(): void {
