@@ -4,10 +4,10 @@ import { Injectable } from "@angular/core";
   providedIn:'root'
 })
 
-export class CartService{
+export class CartService{//crea la clase
   private storagreKey = 'shoppingCart';
 
-  getCart(): any[] {
+  getCart(): any[] {//método para ver el carrito
     const cart = localStorage.getItem(this.storagreKey)
     return cart ? JSON.parse(cart) : [];
   }

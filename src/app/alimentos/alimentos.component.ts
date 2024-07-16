@@ -93,6 +93,7 @@ export class AlimentosComponent implements OnInit{
   removeItemFromCart(item: any): void {
     this.cartService.removeFromCart(item);
     this.cart = this.cartService.getCart();  // Update local cart variable
+    this.total-=item.PRECIO
   }
 
   sendWhatsApp(): void {

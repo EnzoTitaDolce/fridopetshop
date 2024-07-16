@@ -1,1 +1,78 @@
-<p>salud works!</p>
+<body>
+  <h1>Nuestros Productos</h1>
+  <h2>Pipetas, spray, cepillos, talcos y mucho más...</h2>
+  <!-- <div id="filtros" *ngIf="marcas">
+    <div id="filtroAnimal">
+      <h2>Animal</h2>
+        <ul>
+          <li><input type="checkbox" name="perro" id="perro" (change)="aplicarFiltros()">Perros</li>
+          <li><input type="checkbox" name="gato" id="gato" (change)="aplicarFiltros()">Gatos</li>
+        </ul>
+    </div>
+    <div id="filtroMarca">
+      <h2>Marca</h2>
+        <ul>
+          <li *ngFor="let marca of this.marcas" id="listaMarcas">
+            <input type="checkbox" name="{{marca}}" id="{{marca}}" (change)="aplicarFiltros()">{{marca}}
+          </li>
+        </ul>
+    </div>
+  </div> -->
+  <button class="btn btn-primary" (click)="openCart()">Ver Carrito</button>
+  <div *ngIf="data">
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th>Cant.</th>
+          <th>Descripción</th>
+          <th>Precio</th>
+          <th>Precio Web</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let item of data">
+          <tr >
+            <td><input type="checkbox" (change)="toggleItemSelection(item, $event)" [checked]="isChecked(item)"></td>
+            <td><input type="number" id="{{item.Descripcion}}"></td>
+            <td>{{ item.Descripcion }}</td>
+            <td>$ {{ (item.PRECIO.toFixed(0)) }}</td>
+            <td>$ {{((item.PRECIO)*0.985).toFixed(0)}}</td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+
+  </div>
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="cartModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="cartModalLabel">Carrito de Compras</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <ul>
+            <li *ngFor="let item of cart">
+              {{ item.Descripcion }}: {{ item.Cantidad }} - $ {{item.PRECIO}}
+              <button class="btn btn-danger btn-sm" (click)="removeItemFromCart(item)">Eliminar</button>
+            </li>
+          </ul>
+        </div>
+        <div>
+          Total:$ {{total}}
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Volver</button>
+          <button type="button" class="btn btn-primary" (click)="sendWhatsApp()">Enviar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  </body>
+

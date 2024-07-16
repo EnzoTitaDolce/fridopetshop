@@ -5,11 +5,15 @@
 }
 body{
   margin:0;
-  padding:0;
+  padding:0 0 15px 0;
   display: flex;
   flex-direction: column;
   background-color: #5158BB;
-
+  min-height: 100vh;
+  background: url('../assets/img/logo.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: auto;
 }
 #contenido{
   width: 90%;
