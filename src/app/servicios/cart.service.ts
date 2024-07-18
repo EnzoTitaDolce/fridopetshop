@@ -1,11 +1,13 @@
 import { Injectable } from "@angular/core";
 
+
 @Injectable({
   providedIn:'root'
 })
 
 export class CartService{//crea la clase
   private storagreKey = 'shoppingCart';
+  totalGeneral:number =0
 
   getCart(): any[] {//método para ver el carrito
     const cart = localStorage.getItem(this.storagreKey)

@@ -38,7 +38,8 @@ export class SaludComponent implements OnInit{
   }
 
   calcularTotalGeneral(): void {
-    this.totalGeneral = this.cart.reduce((acc, item) => acc + (item.PRECIO * item.quantity), 0);
+    //this.totalGeneral = this.cart.reduce((acc, item) => acc + (item.PRECIO * item.quantity), 0);
+    this.totalGeneral = this.cartService.getTotal()
   }
 
   removeItemFromCart(item: any): void {

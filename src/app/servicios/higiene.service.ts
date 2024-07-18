@@ -13,8 +13,8 @@ export class HigieneService {
 
    getData(): Observable<any>{
 
-    return this.http.get<any>(this.jsonurl).pipe(map((respone)=>{
-      return respone
+    return this.http.get<any>(this.jsonurl).pipe(map((response)=>{
+      return response
     }))
 
    }

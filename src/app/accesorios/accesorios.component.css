@@ -1,0 +1,105 @@
+body{
+  background-color: #043565;
+  color:white;
+  width: 100%;
+  border-radius: 10px;
+  text-align: center;
+}
+h1{
+  /*background-color: #02394A;*/
+  color:black;
+  border-radius: 10px 10px 0px 0px;
+}
+#instrucciones {
+  text-align: left;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: white;
+  margin: 20px;
+}
+
+#instrucciones li {
+  margin-bottom: 10px;
+}
+
+#filtros{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 5px;
+  text-align: center;
+}
+#filtroAnimal{
+
+  padding: 10px;
+}
+
+#filtroMarca{
+
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+ul{
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+ul li{
+  margin:5px;
+}
+table {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color:#03A9F4;
+  border-collapse: collapse;
+  color: #000000;
+  font-weight: bolder;
+}
+table tr:nth-child(odd) {
+  background-color: #8FBFE0; /* Color amarillo para filas impares */
+}
+
+table tr:nth-child(even) {
+  background-color: #A0D2DB; /* Color naranja para filas pares */
+}
+table tr:hover{
+  background-color: navy;
+  color: white;
+}
+th, td {
+  width:auto;
+  /*width:25%;*/
+  border: 1px solid black;
+  padding: 2px;
+  text-align: center;
+  text-wrap: wrap;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+#cartModal{
+  color: black;
+}
+
+@media screen and (max-width:540px){
+  table tr th:nth-of-type(2),
+  table tr td:nth-of-type(2),
+  table tr th:nth-of-type(4),
+  table tr td:nth-of-type(4),
+  table tr td:nth-of-type(5),
+  table tr th:nth-of-type(5) {
+  display: none;
+}
+
+#filtros{
+  display: flex;
+  flex-direction: column;
+}
+
+}
