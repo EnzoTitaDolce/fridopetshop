@@ -19,7 +19,10 @@ export class CartService{//crea la clase
     localStorage.setItem(this.storagreKey, JSON.stringify(cart))
 
   }
-
+  getTotal(): number {
+    const cart = this.getCart();
+    return cart.reduce((acc, item) => acc + (item.PRECIO * (item.quantity || 1)), 0);
+  }
    removeFromCart(item:any):void{
     let cart = this.getCart();
     cart = cart.filter(cartItem => cartItem.DESCRIPCION !== item.DESCRIPCION);

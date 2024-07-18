@@ -17,8 +17,8 @@ export class AlimentosComponent implements OnInit{
   filtroMarca: string[] = [];
   dataFiltrada: any[] = [];
   item: any;
-  total:number = 0
-
+  total:any;
+  totalGeneral:number = 0;
 
 
   constructor(private alimentosService:AlimentosService, private cartService: CartService){}
@@ -31,6 +31,12 @@ export class AlimentosComponent implements OnInit{
       this.dataFiltrada = this.data
       this.cart = this.cartService.getCart();
     })
+
+    this.cart = this.cartService.getCart().map(item =>({
+      ...item,quantity:1,
+      total: item.PRECIO
+    }))
+    this.totalGeneral = this.cartService.getTotal();
   }
   aplicarFiltros(): void {
     // Reiniciar filtros
@@ -58,6 +64,13 @@ export class AlimentosComponent implements OnInit{
     this.filtrarDatos();
   }
 
+  actualizarCantidad(item: any): void {
+    this.totalGeneral = this.cartService.getTotal();
+      }
+
+  calcularTotalGeneral(): void {
+    this.totalGeneral = this.cartService.getTotal();
+  }
   filtrarDatos(): void {
     if (this.filtroAnimal.length === 0 && this.filtroMarca.length === 0) {
       this.dataFiltrada = this.data;
@@ -79,13 +92,18 @@ export class AlimentosComponent implements OnInit{
     }
     this.cart = this.cartService.getCart();
   }
-
+  updateQuantity(item:any){}
+  closeCart(): void{
+    $('#cartModal').modal('hide')
+  }
   openCart(): void{
 
     for (let item of this.cart){
       this.total+=item.PRECIO
     }
     $('#cartModal').modal('show')
+    this.totalGeneral = this.cartService.getTotal()
+
   }
   isChecked(item: any): boolean {
     return this.cartService.isInCart(item);
@@ -94,6 +112,7 @@ export class AlimentosComponent implements OnInit{
     this.cartService.removeFromCart(item);
     this.cart = this.cartService.getCart();  // Update local cart variable
     this.total-=item.PRECIO
+    this.totalGeneral = this.cartService.getTotal();
   }
 
   sendWhatsApp(): void {
@@ -102,6 +121,7 @@ export class AlimentosComponent implements OnInit{
       message += `\n- ${item.DESCRIPCION} `;
     }
     //x ${item.CANTIDAD} Kg
+    message += `por un total de $ ${(this.totalGeneral*0.985).toFixed(2)}`
     const whatsappUrl = `https://api.whatsapp.com/send?phone=+5493816121337&text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   }
