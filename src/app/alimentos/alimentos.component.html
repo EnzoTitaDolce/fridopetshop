@@ -28,7 +28,7 @@
     <thead>
       <tr>
         <th></th>
-        <th>Unidades</th>
+        <th>Cant.</th>
         <th>Marca</th>
         <th>Descripción</th>
         <th>Presentación</th>
@@ -39,6 +39,7 @@
     <tbody>
       <ng-container *ngFor="let item of dataFiltrada">
         <tr >
+          <!-- <td><input type="checkbox" (change)="toggleItemSelection(item, $event)" [checked]="isChecked(item)"></td> -->
           <td><input type="checkbox" (change)="toggleItemSelection(item, $event)" [checked]="isChecked(item)"></td>
           <td><input type="number" [(ngModel)]="item.quantity" id="{{item.Descripcion}}" (change)="updateQuantity(item)" value="1"></td>
           <td>{{ item.MARCA }}</td>
