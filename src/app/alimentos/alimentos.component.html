@@ -2,7 +2,7 @@
 <h1>Nuestros Alimentos</h1>
 <ol id="instrucciones">
   <li>Selecciona la cantidad del producto deseado y haz click en la casilla de verificación para agregarlos al carrito.</li>
-  <li>Cuando termines haz click en ver carrito y luego en Enviar para enviarme la lista y ponernos en contacto.</li>
+  <li>Cuando termines haz click en ver carrito y luego en Enviar para enviarnos la lista y ponernos en contacto.</li>
   <li>No se te va a realizar ningún cobro hasta que hayamos confirmado el pedido vía WhatsApp.</li>
 </ol>
 <div id="filtros" *ngIf="marcas">
@@ -71,8 +71,8 @@
           <thead>
             <tr>
               <th>Descripción</th>
-
               <th>Precio Unitario</th>
+              <th>Cant.</th>
               <th>Total</th>
               <th>Acciones</th>
             </tr>
@@ -81,6 +81,7 @@
             <tr *ngFor="let item of cart">
               <td>{{ item.DESCRIPCION }}</td>
               <td>$ {{ (item.PRECIO*0.985).toFixed(2) }}</td>
+              <td>{{item.quantity}}</td>
               <td>$ {{ (item.PRECIO*0.985 * item.quantity).toFixed(2) }}</td>
               <td>
                 <button class="btn btn-danger btn-sm" (click)="removeItemFromCart(item)">Eliminar</button>

@@ -118,9 +118,8 @@ export class AlimentosComponent implements OnInit{
   sendWhatsApp(): void {
     let message = 'Hola, quisiera comprar:\n';
     for (let item of this.cart) {
-      message += `\n- ${item.DESCRIPCION} `;
+      message += `\n- ${item.DESCRIPCION} x ${item.quantity} unidades\n`;
     }
-    //x ${item.CANTIDAD} Kg
     message += `por un total de $ ${(this.totalGeneral*0.985).toFixed(2)}`
     const whatsappUrl = `https://api.whatsapp.com/send?phone=+5493816121337&text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');

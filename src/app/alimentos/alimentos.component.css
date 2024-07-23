@@ -7,8 +7,20 @@ body{
 }
 h1{
   /*background-color: #02394A;*/
-  color:black;
+  color:white;
   border-radius: 10px 10px 0px 0px;
+}
+#instrucciones {
+  text-align: left;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: white;
+  margin: 20px;
+}
+
+#instrucciones li {
+  margin-bottom: 10px;
 }
 #filtros{
   display: flex;

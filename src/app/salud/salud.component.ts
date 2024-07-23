@@ -81,7 +81,7 @@ export class SaludComponent implements OnInit{
   sendWhatsApp(): void {
     let message = 'Hola, quisiera comprar:\n';
     for (let item of this.cart) {
-      message += `\n- ${item.DESCRIPCION} x ${item.quantity} \n`;
+      message += `\n- ${item.DESCRIPCION} x ${item.quantity} unidades\n`;
     }
     message += `por un total de $ ${(this.totalGeneral*0.985).toFixed(2)}`
     const whatsappUrl = `https://api.whatsapp.com/send?phone=+5493816121337&text=${encodeURIComponent(message)}`;
