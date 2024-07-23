@@ -143,4 +143,13 @@ input[type='number']{
   margin:0
 }
 
+input[type='number']:hover{
+  color:white;
+}
+
+table tr:hover{
+  background-color: navy;
+  color: white;
+}
+
 }
