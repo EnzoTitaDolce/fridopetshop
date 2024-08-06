@@ -20,7 +20,8 @@ body{
 }
 @media screen-only and (max-width:540px) {
   body{
-    width: 100vw;
+    min-width: 100vw;
+    background-color: #043565;
   }
 
 }
