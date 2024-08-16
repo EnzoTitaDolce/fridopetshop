@@ -99,6 +99,10 @@ export class AlimentosComponent implements OnInit{
   openCart(): void{
 
     for (let item of this.cart){
+
+      if(item.quantity == undefined){
+        item.quantity = 1
+      }
       this.total+=item.PRECIO
     }
     $('#cartModal').modal('show')
@@ -116,8 +120,14 @@ export class AlimentosComponent implements OnInit{
   }
 
   sendWhatsApp(): void {
+    // if (this.item.quantity == undefined){
+    //   this.item.quantity == 1
+    // }
     let message = 'Hola, quisiera comprar:\n';
     for (let item of this.cart) {
+      if (item.quantity == undefined){
+        item.quantity = 1
+      }
       message += `\n- ${item.DESCRIPCION} x ${item.quantity} unidades\n`;
     }
     message += `por un total de $ ${(this.totalGeneral*0.985).toFixed(2)}`

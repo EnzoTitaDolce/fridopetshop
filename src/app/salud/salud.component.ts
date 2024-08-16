@@ -65,6 +65,9 @@ export class SaludComponent implements OnInit{
   openCart(): void{
     this.calcularTotalGeneral()
     for (let item of this.cart){
+      if(item.quantity == undefined){
+        item.quantity = 1
+      }
       this.total+=item.PRECIO
     }
     $('#cartModal').modal('show')
