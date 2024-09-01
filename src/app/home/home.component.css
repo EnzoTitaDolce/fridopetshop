@@ -2,9 +2,6 @@ body{
   color:white;
   border-radius: 25px;
   background-color:rgba(255, 255, 255, 0.276);
-  /* background: url('../../assets/img/logo.png');
-  background-position: center;
-  background-repeat: no-repeat; */
   background-size:35%;
   height: 74vh;
   display:flex;
@@ -14,4 +11,19 @@ body{
 }
 h1{
   font-size: 3rem;
+  animation-duration: 2s;
+  animation-name: colors;
+  animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+}
+
+@keyframes colors {
+    from{
+      color:navy;
+      font-size: 3rem;
+    }
+    to{
+      color:white;
+      font-size: 1rem;
+    }
 }
