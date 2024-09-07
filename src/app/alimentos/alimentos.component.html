@@ -36,7 +36,7 @@
         <th>Descripción</th>
         <th>Presentación</th>
         <th>Precio</th>
-        <th>Precio Web</th>
+        <!-- <th>Precio Web</th> -->
       </tr>
     </thead>
     <tbody>
@@ -47,9 +47,9 @@
           <td><input type="number" [(ngModel)]="item.quantity" id="{{item.Descripcion}}" (change)="updateQuantity(item)" value="1"></td>
           <td>{{ item.MARCA }}</td>
           <td>{{ item.DESCRIPCION }}</td>
-          <td>{{ item.Cantidad }} kg</td>
-          <td>$ {{ (item.PRECIO.toFixed(0)) }}</td>
-          <td>$ {{((item.PRECIO)*0.985).toFixed(0)}}</td>
+          <td>{{ item.CANTIDAD }} kg</td>
+          <td>$ {{ (item.PRECIOM.toFixed(0)) }}</td>
+          <!-- <td>$ {{((item.PRECIO)*0.985).toFixed(0)}}</td> -->
         </tr>
       </ng-container>
     </tbody>
