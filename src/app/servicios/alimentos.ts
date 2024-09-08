@@ -8,14 +8,8 @@ import { Observable, catchError, map, throwError } from 'rxjs';
 })
 export class AlimentosService {
 
-  //private jsonUrl = 'alimentosjson.json'
-  //private jsonUrl = '../../assets/alimentosjson.json';
   private jsonUrl = 'assets/alimentosjson.json';
-  //private jsonUrl = 'https://proyectoclapcu.web.app/alimentosjson.json'
-
   constructor(private http: HttpClient) { }
-
-
   getData(): Observable<any> {
     return this.http.get<any>(this.jsonUrl).pipe(map((response) => {
         return response; // Puedes desanidar aquí si es necesario
