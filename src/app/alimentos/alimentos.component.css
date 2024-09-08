@@ -171,7 +171,11 @@ input[type='number']:focus{
   text-wrap: wrap;
 
 }
-/* .responsiveModalTabletable tr th:nth-of-type(5), table tr td:nth-of-type(5){
+/* .responsiveModalTable {
   display: flex;
-}*/
+
+} */
+#eliminar{
+  display: flex;
+}
 }

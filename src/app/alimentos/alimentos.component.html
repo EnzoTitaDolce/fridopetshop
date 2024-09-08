@@ -85,7 +85,7 @@
               <td>$ {{ (item.PRECIO*1).toFixed(2) }}</td>
               <td>{{item.quantity}}</td>
               <td>$ {{ (item.PRECIO*1* item.quantity).toFixed(2) }}</td>
-              <td>
+              <td id="eliminar">
                 <button class="btn btn-danger btn-sm" (click)="removeItemFromCart(item)">Eliminar</button>
               </td>
             </tr>
