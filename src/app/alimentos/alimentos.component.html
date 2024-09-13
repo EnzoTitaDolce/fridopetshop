@@ -46,7 +46,7 @@
           <td><input type="number" [(ngModel)]="item.quantity" id="{{item.DESCRIPCION}}" (change)="updateQuantity(item)" value="1"></td>
           <td>{{ item.MARCA }}</td>
           <td>{{ item.DESCRIPCION }}</td>
-          <td>{{item.PRESENTACION}} kg</td>
+          <td>{{item.CANTIDAD}} kg</td>
           <td>$ {{ ((item.PRECIO.toFixed(0))) }}</td>
           <td>$ {{((item.PRECIO)).toFixed(0)}}</td>
         </tr>
